@@ -12,7 +12,6 @@
 
 // --------------------------------------------------------
 let musique=["Anissa - Wejdene","I will pick you up - S3RL","Beggin' - Maneskin","Believe - Folder 5","Thank God - Rilès"]; //Créer une variable avec ces valeurs
-// les fruits sont rangés en ordre de type : ["index0","index1","index2"...] | COMMENCE TOUJOURS EN 0
 console.log(musique); //Donne la liste des valeurs
 console.log(musique.length); //Dit le nombre de valeurs dans le tableau
 
@@ -33,9 +32,8 @@ function getRandomIntInclusive(min, max) { //On importe la fonction aléatoire
     max = Math.floor(max); // On définit ce qu'est le maximum
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
-  
 
-
+// --------------------------------------------------------
 
 
 let Michel = new Personnage("Michel",10)
@@ -47,11 +45,12 @@ let NbrFeux = 30;
 for (let feux = 1; feux <= NbrFeux; feux++) {
     // Une chance sur 5 de faire passer la musique Anissa
     if ((musique[getRandomIntInclusive(0,musique.length)])== musique[0]) { // Wejdene est en valeur 0 dans le tableau
+     
         Michel.SanteMentale -= 1; 
-      console.log(`Feu n°${feux}: Michel n'en peux plus de cette musique, il perd 1PV`);
+      console.log(`Feu n°${feux}/30: Michel n'en peux plus de cette musique, il perd 1PV, il ne lui en reste plus que ${Michel.SanteMentale}PV`);
     } else {
       // Sinon, il continue le trajet on relance la boucle.
-      console.log(`Feu n°${feux}: Michel aime bien cette musique ! Il continue le trajet`);
+      console.log(`Feu n°${feux}/30: Michel aime bien cette musique ! Il continue le trajet après avoir utiliser Shazam`);
     
     }
     if (Michel.SanteMentale==0) { //Condition de défaite (La santé mentale atteint 0 PV)
